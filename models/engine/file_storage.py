@@ -42,7 +42,6 @@ class FileStorage:
                     json_dict = json.JSONDecoder().decode(json_string)
                     for k, v in json_dict.items():
                         name = k.split(".")
-                        print("name: %s" % name)
                         FileStorage.__objects[k] = eval(
                                 "{}(**v)".format(name[0]))
         except FileNotFoundError:
