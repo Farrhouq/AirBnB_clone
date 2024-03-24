@@ -38,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line.split()): class_name = line.split()[0]
         if not class_name:
             print("** class name missing **")
+            return
         if class_name in ['BaseModel']:
             instance_id = line.split()[1]
             if not instance_id:
