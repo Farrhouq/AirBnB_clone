@@ -4,7 +4,7 @@ other classes"""
 
 import uuid
 import datetime
-
+from .__init__ import storage
 
 class BaseModel:
     """defines all common attributes/methods for other classes"""
@@ -25,6 +25,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
+            storage.new(self)
 
 
 
@@ -34,10 +35,11 @@ class BaseModel:
     def save(self):
         """called when the object is saved"""
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """to dict"""
-        obj_dict = self.__dict__
+        obj_dict = dict(self.__dict__)
         obj_dict["__class__"] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
