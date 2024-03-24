@@ -12,6 +12,5 @@ print("-- Create a new object --")
 my_model = BaseModel()
 my_model.name = "My_First_Model"
 my_model.my_number = 89
-print("this is done successfully")
 my_model.save()
 print(my_model)
