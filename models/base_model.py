@@ -6,6 +6,7 @@ import uuid
 import datetime
 from models import storage
 
+
 class BaseModel:
     """defines all common attributes/methods for other classes"""
 
@@ -19,15 +20,15 @@ class BaseModel:
 
         if kwargs:
             self.id = kwargs['id']
-            self.updated_at = datetime.datetime.fromisoformat(kwargs['updated_at'])
-            self.created_at = datetime.datetime.fromisoformat(kwargs['created_at'])
+            self.updated_at = datetime.datetime.fromisoformat(
+                kwargs['updated_at'])
+            self.created_at = datetime.datetime.fromisoformat(
+                kwargs['created_at'])
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
             storage.new(self)
-
-
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"

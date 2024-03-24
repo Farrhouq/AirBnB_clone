@@ -4,6 +4,7 @@ to a JSON file and deserializes JSON file to instances"""
 
 import json
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -14,7 +15,7 @@ class FileStorage:
     def all(self):
         """return a list of objects"""
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """save an object"""
 
@@ -32,7 +33,6 @@ class FileStorage:
             json_string = json.JSONEncoder().encode(json_dict)
             file.write(json_string)
 
-
     def reload(self):
         from ..base_model import BaseModel
         try:
@@ -43,6 +43,6 @@ class FileStorage:
                     for k, v in json_dict.items():
                         name = k.split(".")
                         FileStorage.__objects[k] = eval(
-                                "{}(**v)".format(name[0]))
+                            "{}(**v)".format(name[0]))
         except FileNotFoundError:
             pass
