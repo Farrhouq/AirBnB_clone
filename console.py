@@ -92,6 +92,8 @@ class HBNBCommand(cmd.Cmd):
             if class_name in ['BaseModel']:
                 stuff_list = [str(value) for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
                 print(stuff_list)
+            else:
+                print(f"** class doesn't exist **")
 
     # def do_update(self, line):
 
