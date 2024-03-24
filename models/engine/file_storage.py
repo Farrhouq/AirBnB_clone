@@ -48,3 +48,8 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+    @classmethod
+    def delete(cls, class_name, instance_id):
+        """delete an object"""
+        if f"{class_name}.{instance_id}" in cls.all():
+            FileStorage.__objects.pop(f"{class_name}.{instance_id}")
