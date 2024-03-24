@@ -6,5 +6,21 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """The console command interpreter class"""
 
+    def do_quit(self, line):
+        """Quit the console"""
+        return True
     
+    def do_EOF(self, line):
+        """Quit the console"""
+        return True
+    
+    def do_help(self, arg):
+        """Show this help message"""
+        print(__doc__)
 
+    def emptyline(self):
+        return cmd.Cmd.emptyline(self)
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
