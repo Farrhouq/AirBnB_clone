@@ -53,9 +53,11 @@ class HBNBCommand(cmd.Cmd):
 
 
     def do_destroy(self, line):
-        class_name = line.split()[0]
+        class_name = None
+        if len(line.split()): class_name = line.split()[0]
         if not class_name:
             print("** class name missing **")
+            return
         if class_name in ['BaseModel']:
             instance_id = line.split()[1]
             if not instance_id:
@@ -84,6 +86,9 @@ class HBNBCommand(cmd.Cmd):
             if class_name in ['BaseModel']:
                 stuff_list = [str(value) for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
                 print(stuff_list)
+
+    # def do_update(self, line):
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
