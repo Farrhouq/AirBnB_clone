@@ -16,12 +16,12 @@ class HBNBCommand(cmd.Cmd):
         """Quit the console"""
         return True
     
-    def do_help(self, arg):
-        """Show this help message"""
-        print("__doc__")
+    # def do_help(self, arg):
+    #     """Show this help message"""
+    #     print("__doc__")
 
     def emptyline(self):
-        return cmd.Cmd.emptyline(self)
+        pass
 
 
 if __name__ == '__main__':
