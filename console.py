@@ -34,7 +34,8 @@ class HBNBCommand(cmd.Cmd):
             print(f"** class doesn't exist **")
 
     def do_show(self, line):
-        class_name = line.split()[0]
+        class_name = None
+        if len(line.split()): class_name = line.split()[0]
         if not class_name:
             print("** class name missing **")
         if class_name in ['BaseModel']:
