@@ -16,11 +16,9 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """instantiating a new model with the given attributes"""
-        
+
         if kwargs:
-            for key, val in kwargs.items():
-                if key not in  ["__class__",  "updated_at", "created_at"]:
-                    self.key = val
+            self.id = kwargs['id']
             self.updated_at = datetime.datetime.fromisoformat(kwargs['updated_at'])
             self.created_at = datetime.datetime.fromisoformat(kwargs['created_at'])
 
