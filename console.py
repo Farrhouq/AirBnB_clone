@@ -16,13 +16,19 @@ class HBNBCommand(cmd.Cmd):
         """Quit the console"""
         return True
     
-    # def do_help(self, arg):
-    #     """Show this help message"""
-    #     print("__doc__")
-
     def emptyline(self):
+        """Quit the console"""
         pass
 
+    def do_create(self, line):
+        class_name = line.split()[1]
+        if not class_name:
+            print("** class doesn't exist **")
+        if class_name in ['BaseModel']:
+            new_instance = eval(f"{class_name}()")
+            new_instance.save()
+        else:
+            print(f"** class doesn't exist **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
