@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ Contains a class that defines all common attributes/methods for
 other classes"""
 
