@@ -21,8 +21,7 @@ class FileStorage:
         """save all objects"""
         with open(self.__file_path, "w") as f:
             # print(self.__objects)
-            # json.dump(self.__objects, f)
-            pass
+            json.dump(self.__objects, f)
 
     def reload(self):
         """reload all objects only if the file exists"""
