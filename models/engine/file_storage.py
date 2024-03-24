@@ -34,9 +34,16 @@ class FileStorage:
 
 
     def reload(self):
-        """reload all objects only if the file exists"""
+        from ..base_model import BaseModel
         try:
-            with open(FileStorage.__file_path, "r") as f:
-                FileStorage.__objects = json.load(f)
-        except Exception as e:
+            with open(FileStorage.__file_path, "r") as file:
+                json_string = file.read()
+                if len(json_string) > 0:
+                    json_dict = json.JSONDecoder().decode(json_string)
+                    for k, v in json_dict.items():
+                        name = k.split(".")
+                        print("name: %s" % name)
+                        FileStorage.__objects[k] = eval(
+                                "{}(**v)".format(name[0]))
+        except FileNotFoundError:
             pass
