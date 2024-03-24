@@ -24,8 +24,6 @@ class BaseModel:
         """to dict"""
         obj_dict = self.__dict__
         obj_dict["__class__"] = self.__class__.__name__
-        obj_dict['created_at'] = self.created_at.isoformat(
-            "%Y-%m-%dT%H:%M:%S.%f")
-        obj_dict['updated_at'] = self.updated_at.isoformat(
-            "%Y-%m-%dT%H:%M:%S.%f")
+        obj_dict['created_at'] = self.created_at.isoformat()
+        obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
