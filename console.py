@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
             print(stuff_list)
         else:
             if class_name in ['BaseModel']:
-                stuff_list = [value for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
+                stuff_list = [str(value) for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
                 print(stuff_list)
 
 if __name__ == '__main__':
