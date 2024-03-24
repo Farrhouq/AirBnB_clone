@@ -12,9 +12,10 @@ class FileStorage:
     def __init__(self):
         pass
 
-    def all(self):
+    @classmethod
+    def all(cls):
         """return a list of objects"""
-        return FileStorage.__objects
+        return cls.__objects
 
     def new(self, obj):
         """save an object"""
@@ -46,3 +47,4 @@ class FileStorage:
                             "{}(**v)".format(name[0]))
         except FileNotFoundError:
             pass
+

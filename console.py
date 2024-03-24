@@ -41,15 +41,27 @@ class HBNBCommand(cmd.Cmd):
             if not instance_id:
                 print("** instance id missing **")
             else:
-                instances = FileStorage.__objects
+                instances = FileStorage.all()
                 for key, value in instances.items():
-                    if key.split()[1] == instance_id:
+                    if key.split('.')[1] == instance_id:
                         print(value)
                         return
                 print("** no instance found **")
         else:
             print(f"** class doesn't exist **")
 
+
+    def do_all(self, line):
+        class_name = None
+        if len(line.split()) >= 1:
+            class_name = line.split()[0]
+        if not class_name:
+            stuff_list = [str(value) for key, value in FileStorage.all().items()]
+            print(stuff_list)
+        else:
+            if class_name in ['BaseModel']:
+                stuff_list = [value for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
+                print(stuff_list)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
