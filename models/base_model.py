@@ -29,6 +29,7 @@ class BaseModel:
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
             storage.new(self)
+            print(self.id)
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
