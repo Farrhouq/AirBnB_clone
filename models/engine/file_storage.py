@@ -36,6 +36,7 @@ class FileStorage:
 
     def reload(self):
         from ..base_model import BaseModel
+        from ..user import User
         try:
             with open(FileStorage.__file_path, "r") as file:
                 json_string = file.read()
