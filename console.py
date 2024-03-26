@@ -31,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
         if not class_name:
             print("** class name missing **")
             return
-        if class_name in ['BaseModel', 'User']:
+        if class_name in ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']:
             eval(f"{class_name}().save()")
         else:
             print(f"** class doesn't exist **")
@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         if not class_name:
             print("** class name missing **")
             return
-        if class_name in ['BaseModel', 'User']:
+        if class_name in ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']:
             instance_id = None
             if len(line.split()) - 1: instance_id = line.split()[1]
             if not instance_id:
@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
         if not class_name:
             print("** class name missing **")
             return
-        if class_name in ['BaseModel', 'User']:
+        if class_name in ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']:
             instance_id = None
             if len(line.split()) - 1: instance_id = line.split()[1]
             if not instance_id:
@@ -90,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
             stuff_list = [str(value) for key, value in FileStorage.all().items()]
             print(stuff_list)
         else:
-            if class_name in ['BaseModel', 'User']:
+            if class_name in ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']:
                 stuff_list = [str(value) for key, value in FileStorage.all().items() if value.__class__.__name__ == class_name]
                 print(stuff_list)
             else:
@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
         if not class_name:
             print("** class name missing **")
             return
-        if class_name in ['BaseModel', 'User']:
+        if class_name in ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']:
             instance_id = None
             if len(line.split()) - 1: instance_id = line.split()[1]
             if not instance_id:

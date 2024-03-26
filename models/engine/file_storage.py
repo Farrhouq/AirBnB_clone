@@ -37,6 +37,12 @@ class FileStorage:
     def reload(self):
         from ..base_model import BaseModel
         from ..user import User
+        from ..amenity import Amenity
+        from ..city import City
+        from ..place import Place
+        from ..review import Review
+        from ..state import State
+        
         try:
             with open(FileStorage.__file_path, "r") as file:
                 json_string = file.read()
